@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZakaCoin.Views.NewItemPage"
+             Title="New Item">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Total Receives" FontSize="Medium"/>
+            <Label Text="" x:Name="txtReceives" FontSize="Medium"/>
+
+            <Label Text="Total Deduct" FontSize="Medium"/>
+            <Label Text="" x:Name="txtDeduct" FontSize="Medium"/>
+
+            <Label Text="Total Balance" FontSize="Medium"/>
+            <Label Text="" x:Name="txtBalance" FontSize="Medium"/>
+
+            <ListView x:Name="lst"></ListView>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

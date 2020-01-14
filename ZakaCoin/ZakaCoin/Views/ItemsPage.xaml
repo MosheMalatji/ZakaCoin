@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZakaCoin.Views.ItemsPage"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+ 
+    <ContentPage.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="TextColor" Value="Navy"/>
+            <Setter Property="BorderColor" Value="Green"/>
+            <Setter Property="FontFamily" Value="Century Gothic" />
+            <Setter Property="BorderColor" Value="Navy" />
+            <Setter Property="BorderWidth" Value="1" />
+            <Setter Property="CornerRadius" Value="18" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout >
+        <Grid Padding="5,5,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Navigation Bar-->
+            <Grid Grid.Row="0" Padding="8,5,5,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="BtnMenu" Source="menu.png" Grid.Column="0" HeightRequest="30" WidthRequest="30"  
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BtnMenu_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="ZAKACoin" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                      FontAttributes="Bold" FontFamily="Century Gothic" TextColor="Navy" FontSize="Title"/>
+            </Grid>
+            <!-- End of Navigation Menu-->
+            <Label Text="Wallet" TextColor="Navy" FontSize="Title" Grid.Row="1" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Public Key" FontSize="Medium" TextColor="Navy" Grid.Row="2"  />
+            <Entry Text="{Binding Transaction.Sender}" FontSize="Small" Grid.Row="3"/>
+            <Label Text="Private Key" FontSize="Medium" TextColor="Navy" Grid.Row="4"  />
+            <Entry Text="{Binding Transaction.PrivateKey}"  FontSize="Small" Grid.Row="5"  />
+            <Button Text="Save"
+               x:Name="btnSave"
+               Style="{StaticResource ButtonStyle}"
+               Clicked="btnSave_Clicked"
+               Grid.Row="6" />
+            <Button x:Name="btnTransaction" Grid.Row="7" BackgroundColor="Transparent" 
+             Text="View Transactions" Clicked="CreateSign_Clicked" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

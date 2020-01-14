@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ZakaCoin.Views.AboutPage"
+             xmlns:vm="clr-namespace:ZakaCoin.ViewModels"
+             Title="ZakaCoin"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="Accent">#96d1ff</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="Navy"/>
+                <Setter Property="FontFamily" Value="Century Gothic" />
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="Navy"/>
+                <Setter Property="BorderColor" Value="Green"/>
+                <Setter Property="FontFamily" Value="Century Gothic" />
+                <Setter Property="BorderColor" Value="Navy" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Spacing="10" >
+            <Grid Padding="5,5,5,5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--Navigation Bar-->
+                <Grid Grid.Row="0" Grid.ColumnSpan="2" Padding="8,5,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="BtnMenu" Source="menu.png" Grid.Column="0" HeightRequest="30" WidthRequest="30"  
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnMenu_Tapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="ZAKACoin" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                      FontAttributes="Bold" FontFamily="Century Gothic" TextColor="Navy" FontSize="Title"/>
+                </Grid>
+                <!-- End of Navigation Menu-->
+
+                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="Scan To Pay" FontSize="Subtitle" TextColor="Navy" HorizontalOptions="CenterAndExpand"/>
+                <Entry x:Name="txtBarcode"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource EntryStyle}"
+                    Placeholder="Recipient QR ID"/>
+            <Entry x:Name="txtAmount"  
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource EntryStyle}"
+               Placeholder="price"/>
+                <Button Text="Scan QR"
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    x:Name="btnScan"
+                    Style="{StaticResource ButtonStyle}"
+                    Clicked="btnScan_Clicked"/>
+                <Button Text="Pay"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    x:Name="btnPay"
+                    Clicked="btnPay_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+    
+</ContentPage>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:ZakaCoin.Views"
+       xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+       Title="ZakaCoin"
+       x:Class="ZakaCoin.AppShell"
+       NavigationPage.HasNavigationBar="False">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="Navy" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="White" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Gray"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Navy"/>
+                <Setter Property="Shell.NavBarIsVisible" Value="False"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+   
+    <!-- Your Pages -->
+    <TabBar>
+        <Tab Title="Wallet" >
+            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+        </Tab>
+        <Tab Title="Pay" >
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+        </Tab>
+    </TabBar>
+
+   
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <yummy:PancakeView
+            BackgroundGradientAngle="0"
+            HorizontalOptions="FillAndExpand"
+            IsClippedToBounds="true"
+            VerticalOptions="FillAndExpand">
+                <StackLayout Margin="0,10,0,0" Padding="25">
+                    <Label
+                    Margin="0,2,0,0"
+                    FontSize="26"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Header Title Here"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+
+                </StackLayout>
+            </yummy:PancakeView>
+
+        </DataTemplate>
+
+    </Shell.FlyoutHeaderTemplate>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                <Label Text="Hi"/>
+            </ContentView>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <ContentView>
+                <Label Text="Hi"/>
+            </ContentView>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+
+</Shell>
