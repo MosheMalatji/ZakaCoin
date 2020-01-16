@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ZakaCoin.Services;
 using ZakaCoin.Views;
-
+using ZakaCoin.Views.Login;
 namespace ZakaCoin
 {
     public partial class App : Application
@@ -13,7 +13,7 @@ namespace ZakaCoin
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new TabbedForm());
         }
 
         protected override void OnStart()

@@ -1,3 +1,6 @@
+using Syncfusion.XForms.iOS.ComboBox;
+using Syncfusion.XForms.iOS.TabView;
+using Syncfusion.XForms.iOS.Buttons;
 using Syncfusion.SfNavigationDrawer.XForms.iOS;
 using System;
 using System.Collections.Generic;
@@ -25,6 +28,9 @@ namespace ZakaCoin.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
 global::Xamarin.Forms.Forms.Init();
+            SfComboBoxRenderer.Init();
+            SfTabViewRenderer.Init();
+            SfButtonRenderer.Init();
 SfNavigationDrawerRenderer.Init();
             LoadApplication(new App());
 
