@@ -9,9 +9,7 @@
              Title="ZakaCoin"
              NavigationPage.HasNavigationBar="False">
 
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
+  
     
     <ContentPage.Resources>
         <ResourceDictionary>

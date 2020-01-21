@@ -1,6 +1,8 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
+using ZakaCoin.Models;
 
 namespace ZakaCoin.Views.Login
 {
@@ -11,6 +13,24 @@ namespace ZakaCoin.Views.Login
         public TabbedForm()
         {
             InitializeComponent();
+        }
+
+        private void btnSignUp_Clicked(object sender, System.EventArgs e)
+        {
+            //Do Something
+        }
+
+        private async void btnLogin_Clicked(object sender, System.EventArgs e)
+        {
+
+            Navigation.InsertPageBefore(new AppShell(), this);
+            await Navigation.PopAsync();
+
+        }
+
+        private object AreCredentialsCorrect(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

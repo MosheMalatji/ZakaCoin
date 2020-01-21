@@ -37,12 +37,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
                 </Grid.RowDefinitions>
-                <Image x:Name="BtnMenu" Source="menu.png" Grid.Column="0" HeightRequest="30" WidthRequest="30"  
-                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="BtnMenu_Tapped"/>
-                    </Image.GestureRecognizers>
-                </Image>
+              
                 <Label Text="ZAKACoin" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                       FontAttributes="Bold" FontFamily="Century Gothic" TextColor="Navy" FontSize="Title"/>
             </Grid>

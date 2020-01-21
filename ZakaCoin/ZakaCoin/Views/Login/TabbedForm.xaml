@@ -4,7 +4,6 @@
              xmlns:control="clr-namespace:ZakaCoin.Controls"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:local="clr-namespace:ZakaCoin.Views.Login"
-             xmlns:viewModel="clr-namespace:ZakaCoin.ViewModels.Login"
              xmlns:converter="clr-namespace:ZakaCoin.Converters"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:tabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
@@ -35,9 +34,12 @@
                     Phone="FillAndExpand" />
             </ScrollView.VerticalOptions>
             <StackLayout WidthRequest="{OnIdiom Phone='-1', Default='550'}">
-                <StackLayout.BindingContext>
-                    <viewModel:LoginPageViewModel/>
-                </StackLayout.BindingContext>
+                <StackLayout>
+                    <Label Text="Zaka" HorizontalOptions="CenterAndExpand" FontSize="35" TextColor="Navy" FontAttributes="Bold" Grid.Row="0"/>
+                    <Label Text="Wallet" HorizontalOptions="CenterAndExpand" FontSize="18" TextColor="Navy"  Grid.Row="1"/>
+
+                </StackLayout>
+                
                 <control:CustomShadowFrame Margin="24,8" Padding="0">
                     <tabView:SfTabView VisibleHeaderCount="2" >
                         <tabView:SfTabView.SelectionIndicatorSettings>
@@ -49,11 +51,10 @@
                                            TitleFontFamily="{StaticResource Montserrat-Regular}"
                                            TitleFontSize="14"
                                            TitleFontColor="{DynamicResource Gray-700}">
-                            <tabView:SfTabItem.BindingContext>
-                                <viewModel:LoginPageViewModel/>
-                            </tabView:SfTabItem.BindingContext>
+                            
                             <tabView:SfTabItem.Content>
                                 <Grid VerticalOptions="Center">
+                                    <!--Login Stacklayoout-->
                                     <StackLayout Padding="16" HorizontalOptions="Center" 
                                              VerticalOptions="Center">
                                         <local:SimpleEmailEntry Padding="0,24" />
@@ -92,7 +93,8 @@
                                     HorizontalOptions="Center"
                                     WidthRequest="245"
                                     Margin="0,16"
-                                    Command="{Binding LoginCommand}"
+                                    x:Name="btnLogin"
+                                    Clicked="btnLogin_Clicked"                
                                     Style="{StaticResource SfButtonStyle}"
                                     Text="LOGIN" />
 
@@ -104,9 +106,7 @@
                                            TitleFontFamily="{StaticResource Montserrat-Regular}"
                                            TitleFontSize="14"
                                            TitleFontColor="{DynamicResource Gray-700}">
-                            <tabView:SfTabItem.BindingContext>
-                                <viewModel:SignUpPageViewModel/>
-                            </tabView:SfTabItem.BindingContext>
+                            
                             <tabView:SfTabItem.Content>
                                 <StackLayout Padding="16,16,16,36" Spacing="24" HorizontalOptions="Center">
                                     <!--  Entry to get username from user  -->
@@ -158,8 +158,9 @@
 
                                     <!--  Sign-up button  -->
                                     <buttons:SfButton
+                                    x:Name="btnSignUo"
                                     HorizontalOptions="Center"
-                                    Command="{Binding SignUpCommand}"
+                                    Clicked="btnSignUp_Clicked"
                                     CornerRadius="20"
                                     WidthRequest="245"
                                     FontFamily="{StaticResource Montserrat-SemiBold}"

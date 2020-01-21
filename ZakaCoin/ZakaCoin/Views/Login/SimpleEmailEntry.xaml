@@ -10,7 +10,6 @@
     <ContentView.Resources>
         <ResourceDictionary>
             <converter:StringToBooleanConverter x:Key="StringToBooleanConverter" />
-            <converter:ErrorValidationColorConverter x:Key="ErrorValidationColorConverter" PageVariantParameter="1" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
@@ -21,7 +20,7 @@
         <StackLayout>
             <border:SfBorder
                 BackgroundColor="{DynamicResource Gray-White}"
-                BorderColor="{Binding Path=IsFocused, Source={x:Reference EmailEntry}, Converter={x:StaticResource ErrorValidationColorConverter}, ConverterParameter={x:Reference EmailEntry}}"
+                BorderColor="LightGray"
                 Style="{StaticResource SfBorderStyle}">
                 <Grid>
                     <Grid.ColumnDefinitions>

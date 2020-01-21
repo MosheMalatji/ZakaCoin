@@ -30,5 +30,8 @@ namespace ZakaCoin
         {
             // Handle when your app resumes
         }
+
+        protected void IsUserLoggedIn()
+        { }
     }
 }
